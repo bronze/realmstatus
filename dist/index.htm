@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        color: #f5ebd1;
+        font-family: Arial, Verdana, sans-serif;
+        font-size: 12px;
+        line-height: 1.5em;
+        background: #2b1507;
+        overflow: hidden;
+      }
+      section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        place-items: center;
+        place-content: center;
+        height: 100vh;
+      }
+      p {
+        font-size: 80px;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <section><p id="response-output"></p></section>
+    <script>
+      (async () => {
+        let res = await fetch("/.netlify/functions/status-text");
+        if (res.ok) {
+          document.getElementById("response-output").innerHTML =
+            await res.text();
+        }
+      })();
+    </script>
+  </body>
+</html>
