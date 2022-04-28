@@ -29,7 +29,7 @@
     <section><p id="response-output"></p></section>
     <script>
       (async () => {
-        let res = await fetch("/.netlify/functions/status-text");
+        let res = await fetch("/.netlify/functions/token-status");
         if (res.ok) {
           document.getElementById("response-output").innerHTML =
             await res.text();
